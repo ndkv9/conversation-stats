@@ -1,4 +1,6 @@
-import { DataGrid } from '@material-ui/data-grid'
+import { DataGrid, BaseComponentProps } from '@material-ui/data-grid'
+import Pagination from '@material-ui/lab/Pagination'
+import PaginationItem from '@material-ui/lab/PaginationItem'
 
 const InfoTable = ({ dates }) => {
 	const columns = [
@@ -37,9 +39,33 @@ const InfoTable = ({ dates }) => {
 			date: date.date,
 		}
 	})
+
+	function CustomPagination(BaseComponentProps) {
+		const { state, api } = BaseComponentProps
+
+		return (
+			<Pagination
+				color='primary'
+				variant='outlined'
+				shape='rounded'
+				page={state.pagination.page}
+				count={state.pagination.pageCount}
+				// @ts-expect-error
+				renderItem={props2 => <PaginationItem {...props2} disableRipple />}
+				onChange={(event, value) => api.current.setPage(value)}
+			/>
+		)
+	}
 	return (
 		<div style={{ height: 400, margin: 'auto' }}>
-			<DataGrid columns={columns} rows={rows} pageSize={5} />
+			<DataGrid
+				columns={columns}
+				rows={rows}
+				pageSize={5}
+				components={{
+					Pagination: CustomPagination,
+				}}
+			/>
 		</div>
 	)
 }
