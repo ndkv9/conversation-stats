@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import Box from './components/Box'
 import InfoTable from './components/InfoTable'
+import TextField from '@material-ui/core/TextField'
 
 const App = () => {
 	const [startDate, setStartDate] = useState('')
@@ -38,13 +39,26 @@ const App = () => {
 		<div className='App'>
 			<h2>Conversation Stat</h2>
 			<div>
-				<label htmlFor='start_date'>Start date</label>
-				<input id='start_date' value={startDate} onChange={changeStartDate} />
-				<label htmlFor='end_date'>End date</label>
-				<input id='end_date' value={endDate} onChange={changeEndDate} />
-				<input
-					id='token'
-					placeholder='Access token'
+				<TextField
+					id='outlined-basic'
+					label='Start Day'
+					variant='outlined'
+					value={startDate}
+					onChange={changeStartDate}
+				/>
+
+				<TextField
+					id='outlined-basic'
+					label='End Day'
+					variant='outlined'
+					value={endDate}
+					onChange={changeEndDate}
+				/>
+
+				<TextField
+					id='outlined-basic'
+					placeholder='Access Token'
+					variant='outlined'
 					value={token}
 					onChange={changeToken}
 				/>
