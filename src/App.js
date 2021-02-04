@@ -1,12 +1,13 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import Box from './components/Box'
+import InfoTable from './components/InfoTable'
 
 const App = () => {
 	const [startDate, setStartDate] = useState('')
 	const [endDate, setEndDate] = useState('')
 	const [token, setToken] = useState('')
-	const [data, setData] = useState([])
+	const [data, setData] = useState(null)
 
 	const changeStartDate = e => {
 		setStartDate(e.target.value)
@@ -55,19 +56,20 @@ const App = () => {
 			<div className='box-list'>
 				<Box
 					text='Total conversation count'
-					amount={data.total_conversation_count}
+					amount={data?.total_conversation_count}
 				/>
 
 				<Box
 					text='Total user message count'
-					amount={data.total_user_message_count}
+					amount={data?.total_user_message_count}
 				/>
 
 				<Box
 					text='Total visitor message count'
-					amount={data.total_visitor_message_count}
+					amount={data?.total_visitor_message_count}
 				/>
 			</div>
+			{data && <InfoTable dates={data?.by_date} />}
 		</div>
 	)
 }
