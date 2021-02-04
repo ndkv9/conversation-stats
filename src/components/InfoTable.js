@@ -1,4 +1,4 @@
-import { DataGrid, BaseComponentProps } from '@material-ui/data-grid'
+import { DataGrid } from '@material-ui/data-grid'
 import Pagination from '@material-ui/lab/Pagination'
 import PaginationItem from '@material-ui/lab/PaginationItem'
 
@@ -40,8 +40,8 @@ const InfoTable = ({ dates }) => {
 		}
 	})
 
-	function CustomPagination(BaseComponentProps) {
-		const { state, api } = BaseComponentProps
+	function CustomPagination(props) {
+		const { state, api } = props
 
 		return (
 			<Pagination
@@ -56,6 +56,7 @@ const InfoTable = ({ dates }) => {
 			/>
 		)
 	}
+
 	return (
 		<div style={{ height: 400, margin: 'auto' }}>
 			<DataGrid
