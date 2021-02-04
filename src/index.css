@@ -42,3 +42,7 @@ input {
 	font-size: 12px;
 	font-weight: 700;
 }
+
+#input-form {
+	display: inline-flex;
+}

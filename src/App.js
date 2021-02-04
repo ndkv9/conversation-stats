@@ -2,6 +2,9 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import Box from './components/Box'
 import InfoTable from './components/InfoTable'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Button from '@material-ui/core/Button'
+import AccountCircle from '@material-ui/icons/AccountCircle'
 import TextField from '@material-ui/core/TextField'
 
 const App = () => {
@@ -38,50 +41,65 @@ const App = () => {
 	return (
 		<div className='App'>
 			<h2>Conversation Stat</h2>
-			<div>
+			<div id='input-form'>
 				<TextField
-					id='outlined-basic'
-					label='Start Day'
+					id='start-date'
+					label='State Date'
 					variant='outlined'
 					value={startDate}
 					onChange={changeStartDate}
 				/>
 
 				<TextField
-					id='outlined-basic'
-					label='End Day'
+					id='end-date'
+					label='End Date'
 					variant='outlined'
 					value={endDate}
 					onChange={changeEndDate}
 				/>
 
 				<TextField
-					id='outlined-basic'
-					placeholder='Access Token'
-					variant='outlined'
+					id='access-token'
+					label='Access Token'
 					value={token}
 					onChange={changeToken}
+					InputProps={{
+						startAdornment: (
+							<InputAdornment position='start'>
+								<AccountCircle />
+							</InputAdornment>
+						),
+					}}
 				/>
 
-				<button onClick={handleSearch}>Search</button>
+				<Button
+					id='search-btn'
+					variant='contained'
+					color='primary'
+					onClick={handleSearch}
+				>
+					SEARCH
+				</Button>
 			</div>
 
-			<div className='box-list'>
-				<Box
-					text='Total conversation count'
-					amount={data?.total_conversation_count}
-				/>
+			{data && (
+				<div className='box-list'>
+					<Box
+						text='Total conversation count'
+						amount={data?.total_conversation_count}
+					/>
 
-				<Box
-					text='Total user message count'
-					amount={data?.total_user_message_count}
-				/>
+					<Box
+						text='Total user message count'
+						amount={data?.total_user_message_count}
+					/>
 
-				<Box
-					text='Total visitor message count'
-					amount={data?.total_visitor_message_count}
-				/>
-			</div>
+					<Box
+						text='Total visitor message count'
+						amount={data?.total_visitor_message_count}
+					/>
+				</div>
+			)}
 			{data && <InfoTable dates={data?.by_date} />}
 		</div>
 	)
