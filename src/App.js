@@ -34,7 +34,6 @@ const App = () => {
 	}
 
 	console.log('data', data)
-
 	return (
 		<div className='App'>
 			<h2>Conversation Stat</h2>
