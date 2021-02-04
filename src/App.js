@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import Box from './components/Box'
 
 const App = () => {
 	const [startDate, setStartDate] = useState('')
@@ -29,10 +30,6 @@ const App = () => {
 				config
 			)
 			.then(res => setData(res.data))
-
-		setStartDate('')
-		setEndDate('')
-		setToken('')
 	}
 
 	console.log('data', data)
@@ -53,6 +50,23 @@ const App = () => {
 				/>
 
 				<button onClick={handleSearch}>Search</button>
+			</div>
+
+			<div className='box-list'>
+				<Box
+					text='Total conversation count'
+					amount={data.total_conversation_count}
+				/>
+
+				<Box
+					text='Total user message count'
+					amount={data.total_user_message_count}
+				/>
+
+				<Box
+					text='Total visitor message count'
+					amount={data.total_visitor_message_count}
+				/>
 			</div>
 		</div>
 	)

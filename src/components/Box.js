@@ -1,8 +1,8 @@
 const Box = ({ amount, text }) => {
 	return (
 		<div className='box'>
-			<p>{amount}</p>
-			<p>{text}</p>
+			<h2>{amount}</h2>
+			<h4>{text}</h4>
 		</div>
 	)
 }
