@@ -37,3 +37,8 @@ input {
 .box h2 {
 	font-size: 50px;
 }
+
+.MuiDataGrid-colCellTitle {
+	font-size: 12px;
+	font-weight: 700;
+}

@@ -1,36 +1,45 @@
-import ByDate from './ByDate'
-import { AgGridColumn, AgGridReact } from 'ag-grid-react'
-import 'ag-grid-community/dist/styles/ag-grid.css'
-import 'ag-grid-community/dist/styles/ag-theme-material.css'
+import { DataGrid } from '@material-ui/data-grid'
 
 const InfoTable = ({ dates }) => {
+	const columns = [
+		{
+			field: 'conversation_count',
+			headerName: 'Conversation Count',
+			width: 250,
+			sortable: false,
+		},
+		{
+			field: 'missed_chat_count',
+			headerName: 'Missed Chat Count',
+			width: 250,
+			sortable: false,
+		},
+		{
+			field: 'visitors_with_conversation_count',
+			headerName: 'Visitor With Conversation Count',
+			width: 250,
+			sortable: false,
+		},
+		{
+			field: 'date',
+			headerName: 'Date',
+			width: 130,
+			sortable: true,
+		},
+	]
+
+	const rows = dates.map((date, id) => {
+		return {
+			id: id,
+			conversation_count: date.conversation_count,
+			missed_chat_count: date.missed_chat_count,
+			visitors_with_conversation_count: date.visitors_with_conversation_count,
+			date: date.date,
+		}
+	})
 	return (
-		// <table>
-		// 	<caption>Daily numbers from response</caption>
-		// 	<thead>
-		// 		<tr>
-		// 			<th>conversation count</th>
-		// 			<th>missed chat count</th>
-		// 			<th>visitors with conversation count</th>
-		// 			<th>Date</th>
-		// 		</tr>
-		// 	</thead>
-		// 	<tbody>
-		// 		{dates.map(date => (
-		// 			<ByDate key={date.date} date={date} />
-		// 		))}
-		// 	</tbody>
-		// </table>
-		<div
-			className='ag-theme-material'
-			style={{ height: 600, width: '60%', margin: 'auto' }}
-		>
-			<AgGridReact rowData={dates} isFullWidthCel={true}>
-				<AgGridColumn field='conversation_count'></AgGridColumn>
-				<AgGridColumn field='missed_chat_count'></AgGridColumn>
-				<AgGridColumn field='visitors_with_conversation_count'></AgGridColumn>
-				<AgGridColumn field='date' sortable={true}></AgGridColumn>
-			</AgGridReact>
+		<div style={{ height: 400, margin: 'auto' }}>
+			<DataGrid columns={columns} rows={rows} pageSize={5} />
 		</div>
 	)
 }
