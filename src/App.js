@@ -5,6 +5,7 @@ const App = () => {
 	const [startDate, setStartDate] = useState('')
 	const [endDate, setEndDate] = useState('')
 	const [token, setToken] = useState('')
+	const [data, setData] = useState([])
 
 	const changeStartDate = e => {
 		setStartDate(e.target.value)
@@ -22,18 +23,19 @@ const App = () => {
 		const config = {
 			headers: { Authorization: `bearer ${token}` },
 		}
-
 		axios
 			.get(
 				`https://api.giosg.com/api/reporting/v1/rooms/84e0fefa-5675-11e7-a349-00163efdd8db/chat-stats/daily/?start_date=${startDate}&end_date=${endDate}`,
 				config
 			)
-			.then(res => console.log('data', res.data))
+			.then(res => setData(res.data))
 
 		setStartDate('')
 		setEndDate('')
 		setToken('')
 	}
+
+	console.log('data', data)
 
 	return (
 		<div className='App'>
