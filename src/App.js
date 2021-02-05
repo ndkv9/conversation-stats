@@ -29,6 +29,7 @@ const App = () => {
 		const config = {
 			headers: { Authorization: `bearer ${token}` },
 		}
+
 		axios
 			.get(
 				`https://api.giosg.com/api/reporting/v1/rooms/84e0fefa-5675-11e7-a349-00163efdd8db/chat-stats/daily/?start_date=${startDate}&end_date=${endDate}`,
@@ -38,6 +39,7 @@ const App = () => {
 	}
 
 	console.log('data', data)
+
 	return (
 		<div className='App'>
 			<h2>Conversation Stat</h2>
@@ -86,21 +88,21 @@ const App = () => {
 				<div className='box-list'>
 					<Box
 						text='Total conversation count'
-						amount={data?.total_conversation_count}
+						amount={data.total_conversation_count}
 					/>
 
 					<Box
 						text='Total user message count'
-						amount={data?.total_user_message_count}
+						amount={data.total_user_message_count}
 					/>
 
 					<Box
 						text='Total visitor message count'
-						amount={data?.total_visitor_message_count}
+						amount={data.total_visitor_message_count}
 					/>
 				</div>
 			)}
-			{data && <InfoTable dates={data?.by_date} />}
+			{data && <InfoTable dates={data.by_date} />}
 		</div>
 	)
 }
