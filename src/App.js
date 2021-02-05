@@ -25,10 +25,33 @@ const App = () => {
 		setToken(e.target.value)
 	}
 
+	const savedData = {
+		startDate: window.localStorage.getItem('startDate'),
+		endDate: window.localStorage.getItem('endDate'),
+		token: window.localStorage.getItem('token'),
+	}
+
+	if (savedData.token) {
+		const config = {
+			headers: { Authorization: `bearer ${savedData.token}` },
+		}
+
+		axios
+			.get(
+				`https://api.giosg.com/api/reporting/v1/rooms/84e0fefa-5675-11e7-a349-00163efdd8db/chat-stats/daily/?start_date=${savedData.startDate}&end_date=${savedData.endDate}`,
+				config
+			)
+			.then(res => setData(res.data))
+	}
+
 	const handleSearch = () => {
 		const config = {
 			headers: { Authorization: `bearer ${token}` },
 		}
+
+		window.localStorage.setItem('startDate', startDate)
+		window.localStorage.setItem('endDate', endDate)
+		window.localStorage.setItem('token', token)
 
 		axios
 			.get(
@@ -37,8 +60,6 @@ const App = () => {
 			)
 			.then(res => setData(res.data))
 	}
-
-	console.log('data', data)
 
 	return (
 		<div className='App'>
