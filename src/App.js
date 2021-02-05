@@ -45,13 +45,13 @@ const App = () => {
 	}
 
 	const handleSearch = () => {
-		const config = {
-			headers: { Authorization: `bearer ${token}` },
-		}
-
 		window.localStorage.setItem('startDate', startDate)
 		window.localStorage.setItem('endDate', endDate)
 		window.localStorage.setItem('token', token)
+
+		const config = {
+			headers: { Authorization: `bearer ${token}` },
+		}
 
 		axios
 			.get(
