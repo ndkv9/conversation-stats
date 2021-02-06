@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import Box from './components/Box'
+import BoxList from './components/BoxList'
 import InfoTable from './components/InfoTable'
 import InputForm from './components/InputForm'
 
@@ -74,24 +74,7 @@ const App = () => {
 					{savedData?.savedEndDate}
 				</div>
 			)}
-			{data && (
-				<div className='box-list'>
-					<Box
-						text='Total conversation count'
-						amount={data.total_conversation_count}
-					/>
-
-					<Box
-						text='Total user message count'
-						amount={data.total_user_message_count}
-					/>
-
-					<Box
-						text='Total visitor message count'
-						amount={data.total_visitor_message_count}
-					/>
-				</div>
-			)}
+			{data && <BoxList data={data} />}
 			{data && <InfoTable dates={data.by_date} />}
 		</div>
 	)
