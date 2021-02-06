@@ -58,7 +58,7 @@ const InfoTable = ({ dates }) => {
 	}
 
 	return (
-		<div style={{ height: 400, margin: 'auto' }}>
+		<div className='info-table' style={{ height: 400, margin: 'auto' }}>
 			<DataGrid
 				columns={columns}
 				rows={rows}
