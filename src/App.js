@@ -57,7 +57,7 @@ const App = () => {
 	}
 
 	return (
-		<div className='App'>
+		<div id='App'>
 			<h1>CONVERSATION STATS</h1>
 
 			<InputForm

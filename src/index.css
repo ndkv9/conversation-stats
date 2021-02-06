@@ -10,6 +10,22 @@ h1 {
 
 .box-list {
 	display: flex;
+	justify-content: space-evenly;
+}
+
+#input-form {
+	display: flex;
+	justify-content: space-between;
+}
+
+#inputs {
+	display: flex;
+	justify-content: flex-start;
+}
+
+#token-container {
+	display: flex;
+	justify-content: flex-end;
 }
 
 .box {
