@@ -41,3 +41,7 @@ input {
 .MuiDataGrid-colCellTitle {
 	font-size: 12px;
 }
+
+.info-table {
+	display: flex;
+}
