@@ -31,9 +31,15 @@ const App = () => {
 					config
 				)
 				.then(res => setData(res.data))
-				.catch(err =>
-					setNoti('Invalid format or token, using data from last search')
-				)
+				.catch(err => {
+					if (data) {
+						setNoti('Invalid format or token, using data from last search')
+						window.localStorage.clear()
+					} else {
+						setNoti('Invalid format or token')
+						window.localStorage.clear()
+					}
+				})
 
 			setNoti(`	Data taken from ${savedData?.savedStartDate} to
 				${savedData?.savedEndDate}`)
@@ -54,7 +60,7 @@ const App = () => {
 
 	const handleSearch = () => {
 		if (!startDate || !endDate || !token) {
-			if (savedData.savedToken) {
+			if (savedData.savedToken && data) {
 				setNoti('Missing inputs or token, using data from last search')
 			} else {
 				setNoti('Missing inputs or access token, please fill in first')
