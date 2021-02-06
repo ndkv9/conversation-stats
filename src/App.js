@@ -66,7 +66,7 @@ const App = () => {
 				token={token}
 				changeStartDate={changeStartDate}
 				changeEndDate={changeEndDate}
-				changeToken={token}
+				changeToken={changeToken}
 				handleSearch={handleSearch}
 			/>
 
