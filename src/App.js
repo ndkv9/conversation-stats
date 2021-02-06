@@ -2,10 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import Box from './components/Box'
 import InfoTable from './components/InfoTable'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import Button from '@material-ui/core/Button'
-import AccountCircle from '@material-ui/icons/AccountCircle'
-import TextField from '@material-ui/core/TextField'
+import InputForm from './components/InputForm'
 
 const App = () => {
 	const [startDate, setStartDate] = useState('')
@@ -62,46 +59,15 @@ const App = () => {
 	return (
 		<div className='App'>
 			<h2>Conversation Stat</h2>
-			<div id='input-form'>
-				<TextField
-					id='start-date'
-					label='State Date'
-					variant='outlined'
-					value={startDate}
-					onChange={changeStartDate}
-				/>
-
-				<TextField
-					id='end-date'
-					label='End Date'
-					variant='outlined'
-					value={endDate}
-					onChange={changeEndDate}
-				/>
-
-				<TextField
-					id='access-token'
-					label='Access Token'
-					value={token}
-					onChange={changeToken}
-					InputProps={{
-						startAdornment: (
-							<InputAdornment position='start'>
-								<AccountCircle />
-							</InputAdornment>
-						),
-					}}
-				/>
-
-				<Button
-					id='search-btn'
-					variant='contained'
-					color='primary'
-					onClick={handleSearch}
-				>
-					SEARCH
-				</Button>
-			</div>
+			<InputForm
+				startDate={startDate}
+				endDate={endDate}
+				token={token}
+				changeStartDate={changeStartDate}
+				changeEndDate={changeEndDate}
+				changeToken={token}
+				handleSearch={handleSearch}
+			/>
 			{data && (
 				<div className='noties'>
 					conversation stats from {savedData?.savedStartDate} to{' '}
