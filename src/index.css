@@ -34,13 +34,9 @@ h1 {
 .noties {
 	text-align: center;
 	margin: 30px auto;
-	color: #303f9f;
+	color: orange;
 	font-size: 1.2rem;
 	width: 40%;
-}
-
-span {
-	color: orange;
 }
 
 .box {

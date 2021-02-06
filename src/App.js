@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react'
 import BoxList from './components/BoxList'
 import InfoTable from './components/InfoTable'
 import InputForm from './components/InputForm'
+import Noti from './components/Noti'
 
 const App = () => {
 	const [startDate, setStartDate] = useState('')
 	const [endDate, setEndDate] = useState('')
 	const [token, setToken] = useState('')
 	const [data, setData] = useState(null)
+	const [noti, setNoti] = useState(null)
 	const [savedData, setSavedData] = useState({
 		savedStartDate: window.localStorage.getItem('startDate'),
 		savedEndDate: window.localStorage.getItem('endDate'),
@@ -29,6 +31,12 @@ const App = () => {
 					config
 				)
 				.then(res => setData(res.data))
+				.catch(err =>
+					setNoti('Invalid format or token, using data from last search')
+				)
+
+			setNoti(`	Data taken from ${savedData?.savedStartDate} to
+				${savedData?.savedEndDate}`)
 		}
 	}, [savedData])
 
@@ -45,15 +53,27 @@ const App = () => {
 	}
 
 	const handleSearch = () => {
-		window.localStorage.setItem('token', token)
-		window.localStorage.setItem('startDate', startDate)
-		window.localStorage.setItem('endDate', endDate)
+		if (!startDate || !endDate || !token) {
+			if (savedData.savedToken) {
+				setNoti('Missing inputs or token, using data from last search')
+			} else {
+				setNoti('Missing inputs or access token, please fill in first')
+			}
+		} else {
+			window.localStorage.setItem('token', token)
+			window.localStorage.setItem('startDate', startDate)
+			window.localStorage.setItem('endDate', endDate)
 
-		setSavedData({
-			savedStartDate: window.localStorage.getItem('startDate'),
-			savedEndDate: window.localStorage.getItem('endDate'),
-			savedToken: window.localStorage.getItem('token'),
-		})
+			setSavedData({
+				savedStartDate: window.localStorage.getItem('startDate'),
+				savedEndDate: window.localStorage.getItem('endDate'),
+				savedToken: window.localStorage.getItem('token'),
+			})
+
+			setStartDate('')
+			setEndDate('')
+			setToken('')
+		}
 	}
 
 	return (
@@ -70,12 +90,7 @@ const App = () => {
 				handleSearch={handleSearch}
 			/>
 
-			{data && (
-				<div className='noties'>
-					Data taken from <span>{savedData?.savedStartDate}</span> to{' '}
-					<span>{savedData?.savedEndDate}</span>
-				</div>
-			)}
+			<Noti text={noti} />
 
 			{data && <BoxList data={data} />}
 
