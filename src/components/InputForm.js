@@ -11,6 +11,7 @@ const InputForm = props => {
 					id='start-date'
 					label='State Date'
 					variant='outlined'
+					placeholder='YYYY-MM-DD'
 					value={props.startDate}
 					onChange={props.changeStartDate}
 				/>
@@ -19,6 +20,7 @@ const InputForm = props => {
 					id='end-date'
 					label='End Date'
 					variant='outlined'
+					placeholder='YYYY-MM-DD'
 					value={props.endDate}
 					onChange={props.changeEndDate}
 				/>
