@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Box from './components/Box'
 import InfoTable from './components/InfoTable'
 import InputAdornment from '@material-ui/core/InputAdornment'
@@ -12,6 +12,28 @@ const App = () => {
 	const [endDate, setEndDate] = useState('')
 	const [token, setToken] = useState('')
 	const [data, setData] = useState(null)
+	const [savedData, setSavedData] = useState({
+		savedStartDate: window.localStorage.getItem('startDate'),
+		savedEndDate: window.localStorage.getItem('endDate'),
+		savedToken: window.localStorage.getItem('token'),
+	})
+
+	useEffect(() => {
+		if (savedData.savedToken) {
+			const config = {
+				headers: {
+					Authorization: `bearer ${savedData?.savedToken}`,
+				},
+			}
+
+			axios
+				.get(
+					`https://api.giosg.com/api/reporting/v1/rooms/84e0fefa-5675-11e7-a349-00163efdd8db/chat-stats/daily/?start_date=${savedData?.savedStartDate}&end_date=${savedData?.savedEndDate}`,
+					config
+				)
+				.then(res => setData(res.data))
+		}
+	}, [savedData])
 
 	const changeStartDate = e => {
 		setStartDate(e.target.value)
@@ -25,40 +47,16 @@ const App = () => {
 		setToken(e.target.value)
 	}
 
-	const savedData = {
-		startDate: window.localStorage.getItem('startDate'),
-		endDate: window.localStorage.getItem('endDate'),
-		token: window.localStorage.getItem('token'),
-	}
-
-	if (savedData.token) {
-		const config = {
-			headers: { Authorization: `bearer ${savedData.token}` },
-		}
-
-		axios
-			.get(
-				`https://api.giosg.com/api/reporting/v1/rooms/84e0fefa-5675-11e7-a349-00163efdd8db/chat-stats/daily/?start_date=${savedData.startDate}&end_date=${savedData.endDate}`,
-				config
-			)
-			.then(res => setData(res.data))
-	}
-
 	const handleSearch = () => {
+		window.localStorage.setItem('token', token)
 		window.localStorage.setItem('startDate', startDate)
 		window.localStorage.setItem('endDate', endDate)
-		window.localStorage.setItem('token', token)
 
-		const config = {
-			headers: { Authorization: `bearer ${token}` },
-		}
-
-		axios
-			.get(
-				`https://api.giosg.com/api/reporting/v1/rooms/84e0fefa-5675-11e7-a349-00163efdd8db/chat-stats/daily/?start_date=${startDate}&end_date=${endDate}`,
-				config
-			)
-			.then(res => setData(res.data))
+		setSavedData({
+			savedStartDate: window.localStorage.getItem('startDate'),
+			savedEndDate: window.localStorage.getItem('endDate'),
+			savedToken: window.localStorage.getItem('token'),
+		})
 	}
 
 	return (
