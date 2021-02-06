@@ -58,7 +58,8 @@ const App = () => {
 
 	return (
 		<div className='App'>
-			<h2>Conversation Stat</h2>
+			<h1>CONVERSATION STATS</h1>
+
 			<InputForm
 				startDate={startDate}
 				endDate={endDate}
@@ -68,13 +69,16 @@ const App = () => {
 				changeToken={token}
 				handleSearch={handleSearch}
 			/>
+
 			{data && (
 				<div className='noties'>
 					conversation stats from {savedData?.savedStartDate} to{' '}
 					{savedData?.savedEndDate}
 				</div>
 			)}
+
 			{data && <BoxList data={data} />}
+
 			{data && <InfoTable dates={data.by_date} />}
 		</div>
 	)

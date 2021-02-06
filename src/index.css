@@ -1,19 +1,11 @@
 body {
-	margin: auto;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-		sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	margin: 0 10%;
+	background-color: #fff3e6;
 }
 
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
-}
-
-input {
-	margin-right: 5em;
+h1 {
+	color: #303f9f;
+	text-align: center;
 }
 
 .box-list {
@@ -22,8 +14,7 @@ input {
 
 .box {
 	text-align: center;
-	color: rgb(192, 138, 37);
-	background: lightgrey;
+	color: #303f9f;
 	font-size: 20px;
 	border-style: solid;
 	border-radius: 5px;
@@ -44,4 +35,16 @@ input {
 
 .info-table {
 	display: flex;
+}
+
+#end-date {
+	height: 10px;
+}
+
+#start-date {
+	height: 10px;
+}
+
+.MuiButton-contained {
+	height: 47px;
 }
