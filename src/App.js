@@ -72,8 +72,8 @@ const App = () => {
 
 			{data && (
 				<div className='noties'>
-					conversation stats from {savedData?.savedStartDate} to{' '}
-					{savedData?.savedEndDate}
+					Data taken from <span>{savedData?.savedStartDate}</span> to{' '}
+					<span>{savedData?.savedEndDate}</span>
 				</div>
 			)}
 

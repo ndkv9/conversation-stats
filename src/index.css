@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=B612&display=swap');
+
 body {
+	font-family: B612;
 	margin: 0 10%;
 	background-color: #fff3e6;
 }
@@ -26,6 +29,18 @@ h1 {
 #token-container {
 	display: flex;
 	justify-content: flex-end;
+}
+
+.noties {
+	text-align: center;
+	margin: 30px auto;
+	color: #303f9f;
+	font-size: 1.2rem;
+	width: 40%;
+}
+
+span {
+	color: orange;
 }
 
 .box {
