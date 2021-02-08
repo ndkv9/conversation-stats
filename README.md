@@ -5,7 +5,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/ndkv9/conversation-stats">
-    <img src="https://www.flaticon.com/svg/vstatic/svg/1370/1370907.svg?token=exp=1612810430~hmac=5005aafcf06f5705eb69e3ea7fd3c1f7" alt="Logo" width="80" height="80">
+    <img src="https://i.imgur.com/rDYzhFy.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Conversation Stats</h3>
@@ -16,7 +16,7 @@
     <a href="https://github.com/ndkv9/conversation-stats"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/ndkv9/conversation-stats">View Demo</a>
+    <a href="https://conversation-stats.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/ndkv9/conversation-stats/issues">Report Bug</a>
     ·
