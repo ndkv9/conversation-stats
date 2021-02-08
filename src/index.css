@@ -39,6 +39,10 @@ h1 {
 	width: 40%;
 }
 
+span {
+	color: orange;
+}
+
 .box {
 	text-align: center;
 	color: #303f9f;
