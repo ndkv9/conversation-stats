@@ -35,8 +35,8 @@
 - [React]()
 - [HTML]()
 - [CSS]()
--[JavaScript]()
--[Material UI]()
+- [JavaScript]()
+- [Material UI]()
 
 <!-- GETTING STARTED -->
 
@@ -66,18 +66,18 @@ yarn start
 
 ## Usage
 
-.Fill in start date and end date that you want to retrieve the chat data and the access token.
-.Press the 'SEARCH' button to get the result.
++ Fill in start date and end date that you want to retrieve the chat data and the access token.
++ Press the 'SEARCH' button to get the result.
 
-.After receiving response from API the app will render to UI:
-+ First big box is value from field total_conversation_count.
-+ Middle big box is value from field total_user_message_count.
-+ Right most big box is value from field total_visitor_message_count.
-+ Table on the bottom part of the page shows daily numbers from response which can be found from by_date array in response.
-+ Table will show maximum of 5 items at time. If there are more daily results they will be paginated.
++ After receiving response from API the app will render to UI:
+- First big box is value from field total_conversation_count.
+- Middle big box is value from field total_user_message_count.
+- Right most big box is value from field total_visitor_message_count.
+- Table on the bottom part of the page shows daily numbers from response which can be found from by_date array in response.
+- Table will show maximum of 5 items at time. If there are more daily results they will be paginated.
 
-.Stores start date, end date and token in localStorage so they are already populated if user comes back to app later time.
-.The app will display a status line to help user tracking its state. (Like date range to take data or when user fills in wrong format of data)
++ Stores start date, end date and token in localStorage so they are already populated if user comes back to app later time.
++ The app will display a status line to help user tracking its state. (Like date range to take data or when user fills in wrong format of data)
 <!-- ROADMAP -->
 
 ## Roadmap
