@@ -67,7 +67,7 @@ yarn start
 ## Usage
 
 1. **Fill in start date and end date that you want to retrieve the chat data and the access token.**
-2. Press the 'SEARCH' button to get the result.
+2. **Press the 'SEARCH' button to get the result.**
 
 3. **After receiving response from API the app will render to UI:**
   + First big box is value from field total_conversation_count.
