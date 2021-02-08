@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/ndkv9/conversation-stats">
+    <img src="https://www.flaticon.com/svg/vstatic/svg/1370/1370907.svg?token=exp=1612810430~hmac=5005aafcf06f5705eb69e3ea7fd3c1f7" alt="Logo" width="80" height="80">
+  </a>
 
-## Available Scripts
+  <h3 align="center">Conversation Stats</h3>
 
-In the project directory, you can run:
+  <p align="center">
+   Simple Conversation Stats App that can retrieve conversation data base on user's input dates.
+    <br />
+    <a href="https://github.com/ndkv9/conversation-stats"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/ndkv9/conversation-stats">View Demo</a>
+    ·
+    <a href="https://github.com/ndkv9/conversation-stats/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/ndkv9/conversation-stats/issues">Request Feature</a>
+  </p>
+</p>
 
-### `yarn start`
+<!-- ABOUT THE PROJECT -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About The Project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[![Product Name Screen Shot][product-screenshot]](https://i.imgur.com/uITm6B5.png)
 
-### `yarn test`
+### Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React]()
+- [HTML]()
+- [CSS]()
+-[JavaScript]()
+-[Material UI]()
 
-### `yarn build`
+<!-- GETTING STARTED -->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+git clone https://github.com/ndkv9/conversation-stats
+```
 
-### `yarn eject`
+1. Install NPM packages
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+npm install
+yarn
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Implement application on local server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```sh
+npm start
+yarn start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- USAGE EXAMPLES -->
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+.Fill in start date and end date that you want to retrieve the chat data and the access token.
+.Press the 'SEARCH' button to get the result.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+.After receiving response from API the app will render to UI:
++ First big box is value from field total_conversation_count.
++ Middle big box is value from field total_user_message_count.
++ Right most big box is value from field total_visitor_message_count.
++ Table on the bottom part of the page shows daily numbers from response which can be found from by_date array in response.
++ Table will show maximum of 5 items at time. If there are more daily results they will be paginated.
 
-### Code Splitting
+.Stores start date, end date and token in localStorage so they are already populated if user comes back to app later time.
+.The app will display a status line to help user tracking its state. (Like date range to take data or when user fills in wrong format of data)
+<!-- ROADMAP -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Roadmap
 
-### Analyzing the Bundle Size
+See the [open issues](https://github.com/ndkv9/conversation-stats/issues) for a list of proposed features (and known issues).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- CONTRIBUTING -->
 
-### Making a Progressive Web App
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-### Advanced Configuration
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<!-- LICENSE -->
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Distributed under the MIT License. See `LICENSE` for more information.
 
-### `yarn build` fails to minify
+<!-- CONTACT -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+
+**vu.nguyen101@gmail.com**
+
+Project Link: [Conversation Stats](https://conversation-stats.netlify.app/)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[license-shield]: https://img.shields.io/github/license/ndkv9/conversation-stats.svg?style=flat-square
+[license-url]: https://github.com/ndkv9/conversation-stats/blob/main/LICENSE
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/ndkv9
+[product-screenshot]: https://i.imgur.com/uITm6B5.png
