@@ -67,6 +67,7 @@ yarn start
 ## Usage
 
 1. **Fill in start date and end date that you want to retrieve the chat data and the access token.**
+  + For testing purpose, demo data is available between 01.05.2017 - 15.06.2017
 2. **Press the 'SEARCH' button to get the result.**
 
 3. **After receiving response from API the app will render to UI:**
